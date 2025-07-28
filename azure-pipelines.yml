@@ -21,12 +21,3 @@ steps:
       goals: 'clean install'
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
-
-- script: |
-    echo "Setting JAVA_HOME to Java 21"
-    export JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64
-    export PATH=$JAVA_HOME/bin:$PATH
-    java -version
-    mvn -version
-    mvn clean install
-  displayName: 'Build met Java 21'
