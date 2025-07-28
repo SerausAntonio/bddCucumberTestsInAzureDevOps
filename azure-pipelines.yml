@@ -9,11 +9,11 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-  - task: UseJava@1
+  - task: JavaToolInstaller@0
     inputs:
       versionSpec: '21'
-      jdkArchitecture: 'x64'
-      jdkSourceOption: 'PreInstalled'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'  # Of 'AzureStorage' als je zelf een distributie uploadt
 
   - task: Maven@3
     inputs:
@@ -21,6 +21,7 @@ steps:
       goals: 'clean install'
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
+
 
       
 - script: |
