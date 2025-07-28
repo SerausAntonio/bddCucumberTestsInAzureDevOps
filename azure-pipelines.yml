@@ -21,3 +21,11 @@ steps:
       goals: 'clean install'
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
+
+      
+- script: |
+    echo "Java version:"
+    java -version
+    echo "Available versions:"
+    sudo update-alternatives --display java
+  displayName: 'Check Java version'
