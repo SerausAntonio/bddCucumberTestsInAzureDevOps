@@ -22,11 +22,11 @@ steps:
       publishJUnitResults: true
       testResultsFiles: '**/surefire-reports/TEST-*.xml'
 
-
-      
 - script: |
-    echo "Java version:"
+    echo "Setting JAVA_HOME to Java 21"
+    export JAVA_HOME=/usr/lib/jvm/temurin-21-jdk-amd64
+    export PATH=$JAVA_HOME/bin:$PATH
     java -version
-    echo "Available versions:"
-    sudo update-alternatives --display java
-  displayName: 'Check Java version'
+    mvn -version
+    mvn clean install
+  displayName: 'Build met Java 21'
